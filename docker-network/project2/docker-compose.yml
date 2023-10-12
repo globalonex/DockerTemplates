@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+    web:
+        image: nginx
+        hostname: project2
+        ports:
+            - "127.0.0.102:80:80"
+        networks:
+            some_network:
+                aliases:
+                    - project2.local
+                    - www.project2.local
+
+networks:
+    some_network:
+        # Общая сеть со смежными проектами
+        name: 'our_network'
